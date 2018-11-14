@@ -1,6 +1,7 @@
 package mouseMaze.previous_code;
 
 import mouseMaze.interfaces.MazeInterface;
+import mouseMaze.interfaces.MouseInterface;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -23,19 +24,18 @@ public class Maze implements MazeInterface {
 		maze = new Cell[4][4];
 	}
 
-public void startMouse(Mouse currentMouse) {
+public void startMouse(MouseInterface currentMouse) {
 	Mouse.moveList.clear();
 	resetTraps();
 }
 
 
 @Override
-public int moveMouse(Mouse currentMouse) {
+public int moveMouse(MouseInterface currentMouse) {
 //	 * 2 if mouse escapes
 //	 * 1 if mouse successfully exits the maze.
 //	 * 0 if mouse moves to a new cell but not the exit
 //	 * -1 if mouse dies
-	Mouse.moveList.add(currentMouse.currentPosition);
 	if (Mouse.currentPosition[0] == dimensionX && Mouse.currentPosition[1] == dimensionY)
 		return 1;
 	int tryMove [] = currentMouse.move();

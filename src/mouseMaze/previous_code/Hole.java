@@ -1,6 +1,6 @@
 package mouseMaze.previous_code;
 
-import interfaces.MouseHoleInterface;
+import mouseMaze.interfaces.MouseHoleInterface;
 
 public class Hole implements MouseHoleInterface {
 
