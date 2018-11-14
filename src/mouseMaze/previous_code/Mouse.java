@@ -1,6 +1,6 @@
 package mouseMaze.previous_code;
 
-import mouseMaze.interfaces.MouseInterface;
+import interfaces.MouseInterface;
 
 import java.util.ArrayList;
 
