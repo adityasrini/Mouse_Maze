@@ -23,7 +23,7 @@ public class Maze implements MazeInterface {
 		maze = new Cell[4][4];
 	}
 
-public static void startMouse(Mouse currentMouse) {
+public void startMouse(Mouse currentMouse) {
 	Mouse.moveList.clear();
 	resetTraps();
 }
@@ -35,23 +35,23 @@ public int moveMouse(Mouse currentMouse) {
 //	 * 1 if mouse successfully exits the maze.
 //	 * 0 if mouse moves to a new cell but not the exit
 //	 * -1 if mouse dies
-	Mouse.moveList.add(Mouse.currentPosition);
+	Mouse.moveList.add(currentMouse.currentPosition);
 	if (Mouse.currentPosition[0] == dimensionX && Mouse.currentPosition[1] == dimensionY)
 		return 1;
-	int tryMove [] = Mouse.move();
+	int tryMove [] = currentMouse.move();
 	if ((Mouse.currentPosition[0] == 0 && tryMove [0] == -1) ||
 			(Mouse.currentPosition[0] == dimensionX && tryMove [0] == +1) || 
 			(Mouse.currentPosition[1] == 0 && tryMove [1] == -1) || 
 			(Mouse.currentPosition[1] == dimensionY && tryMove [1] == +1))
 				{
 					fellOffboard++;
-					Mouse.die();
+					currentMouse.die();
 					return -1;
 				}
 	boolean holeExists = maze[Mouse.currentPosition[0]][Mouse.currentPosition[1]].getHole();
 	boolean trapExists = maze[Mouse.currentPosition[0]][Mouse.currentPosition[1]].getTrap();
 	if (holeExists == true) {
-		int holeOutcome [] = Hole.tryHole();
+		int holeOutcome [] = new Hole().tryHole();
 		if (holeOutcome[0] == -1 && holeOutcome[1] == -1) {return 2;}
 		else {
 			Mouse.currentPosition[0] = holeOutcome[0];
@@ -60,14 +60,14 @@ public int moveMouse(Mouse currentMouse) {
 		}
 	}
 	if (trapExists == true) {
-		boolean mouseDead = Trap.springTrap();
+		boolean mouseDead = new Trap().springTrap();
 		if (mouseDead = false) {
 			Mouse.currentPosition[0] += tryMove[0];
 			Mouse.currentPosition[1] += tryMove[1];
 			return 0;
 		}
 		else {
-			Mouse.die();
+			currentMouse.die();
 			return -1;
 		}
 	}
@@ -248,7 +248,7 @@ private void assignTraps(int numTraps) {
 
 private void resetTraps() {
 	for	(int i=0; i<trapList.size(); i++) {
-		trapList.get(i).Trap.setTrap();
+		trapList.get(i);
 	}
 }
 

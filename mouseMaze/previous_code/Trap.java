@@ -22,8 +22,9 @@ public Trap () {
 		int trapFailed = (int)(Math.random() * 9);
 		if (trapFailed == 0) return false;
 		else {
-			Mouse.die();
-			deadList.add(currentMouse.MouseMaze);
+			Mouse currentMouse = new Mouse();
+			currentMouse.die();
+			deadList.add(currentMouse);
 		}
 		return true;
 	}

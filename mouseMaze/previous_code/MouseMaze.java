@@ -18,9 +18,10 @@ public class MouseMaze {
 // movement loop
 		while (isSolved == false); {
 		Mouse currentMouse = new Mouse();
-		Maze.startMouse(currentMouse);
+		Maze maze = new Maze();
+				maze.startMouse(currentMouse);
 		do {
-			moveAttempt = Maze.moveMouse(currentMouse);
+			moveAttempt = maze.moveMouse(currentMouse);
 			if (moveAttempt == 2) System.out.println("Mouse escaped. Generating new mouse.");
 			if (moveAttempt == -1) System.out.println("Mouse died. Generating new mouse.");
 			} while (moveAttempt != 1);
