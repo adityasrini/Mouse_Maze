@@ -1,7 +1,7 @@
 package mouseMaze.interfaces;
 
 
-import mouseMaze.previous_code.Mouse;
+import mouseMaze.implementation.Mouse;
 
 /**
  * @author lrs2169

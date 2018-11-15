@@ -1,12 +1,11 @@
 package mouseMaze.previous_code;
 
-import mouseMaze.interfaces.MouseInterface;
 import mouseMaze.interfaces.MouseTrapInterface;
 
 import java.util.ArrayList;
 
 public class Trap implements MouseTrapInterface {
-	ArrayList<MouseInterface> deadList;
+	ArrayList<Mouse> deadList;
 	boolean trapOn = false;
 	
 public Trap () {
@@ -35,7 +34,7 @@ public Trap () {
 		trapOn = false;
 	}
 	@Override
-	public ArrayList<MouseInterface> returnTheDead() {
+	public ArrayList<Mouse> returnTheDead() {
 		return deadList;
 	}
 }
