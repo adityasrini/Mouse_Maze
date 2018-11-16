@@ -16,6 +16,6 @@ public class Application {
 		System.out.printf("Length and Width of the maze are: %d and %d", length, width);
 		Mouse mouse = new Mouse();
 		MazeInterface maze = new MazeImplementation();
-		maze.startMouse(mouse);
+		maze.createMaze();
 	}
 }
